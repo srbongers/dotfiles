@@ -1,0 +1,42 @@
+#  gitconfig
+[hub]
+	protocol = https
+[alias]
+    # list all aliases
+    la = "!git config -l | grep alias | cut -c 7-"
+    s = status --short
+    su = status --short -uno
+    ss = status
+    ssu = status -uno
+    l = log --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%C(reset) - %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    # show what I did today
+    day = "!sh -c 'git log --reverse --no-merges --branches=* --date=local --after=\"yesterday 11:59PM\" --author=\"`git config --get user.name`\"'"
+    
+    # show the committers in the last 100 commits, sorted by who has commited the most
+    review = "!git log --no-merges --pretty=%an | head -n 100 | sort | uniq -c | sort -nr"
+
+    # order files by number of commits, ascending
+    # Written by Corey Haines
+    # Scriptified by Gary Bernhardt
+    # Show churn for a time range:
+    #   $ git churn --since='1 month ago'
+    churn = "!f() { git log --all -M -C --name-only --format='format:' \"$@\" | sort | grep -v '^$' | uniq -c | sort | awk 'BEGIN {print \"count\tfile\"} {print $1 \"\t\" $2}' | sort -g; }; f"
+    
+    # show all deleted files in the repo
+    deleted = "!git log --diff-filter=D --summary | grep delete"
+
+    # current branch
+    cbr = rev-parse --abbrev-ref HEAD
+   
+    # show number of commits per contributer, sorted
+    count = shortlog -sn
+[color "status"]
+    added = green bold
+    changed = yellow bold
+    untracked = red
+[core]
+    excludesfile = ~/.gitignore_global
+[credential]
+	helper = osxkeychain
+[pull]
+	ff = only

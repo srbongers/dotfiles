@@ -1,0 +1,10 @@
+name: jupyter-base
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - jupyterlab
+  - jupyter_nbextensions_configurator
+  - pip
+  - ipykernel

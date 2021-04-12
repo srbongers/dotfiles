@@ -1,0 +1,42 @@
+#
+# Defines environment variables before .zshrc is sourced
+#
+# This file should be kept light and fast. Anything that's slow or involves
+# user interaction should go in zshrc.
+
+# Dotfiles
+# ----------------------------------------------------------------------------
+export DOTFILES=$HOME/.dotfiles
+
+# Language
+# ----------------------------------------------------------------------------
+[[ -z "$LANG" ]] && eval "$(locale)"
+[[ -z "$LANG" ]] && export LANG=en_US.UTF-8
+[[ -z "$LC_ALL" ]] && export LC_ALL=$LANG
+
+# Cache and temp files
+# ----------------------------------------------------------------------------
+export CACHEDIR="$HOME/.local/share"
+[[ -d "$CACHEDIR" ]] || mkdir -p "$CACHEDIR"
+
+export ZCACHEDIR="$CACHEDIR/zsh"
+[[ -d "$ZCACHEDIR" ]] || mkdir -p "$ZCACHEDIR"
+
+# Fpath
+# ----------------------------------------------------------------------------
+fpath=(
+    $DOTFILES/zsh/functions
+    $fpath
+)
+
+# Path
+# ----------------------------------------------------------------------------
+#path=(
+#    /usr/local/opt/python/libexec/bin 
+#    $DOTFILES/bin
+#    $path
+#)
+
+# General paths
+# ----------------------------------------------------------------------------
+typeset -aU path

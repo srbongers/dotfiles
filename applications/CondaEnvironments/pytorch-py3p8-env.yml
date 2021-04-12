@@ -1,0 +1,29 @@
+name: pytorch-py3p8-env 
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - jupyterlab
+  - jupyter_nbextensions_configurator
+  - pip
+  - ipykernel
+  - ipywidgets
+  - numpy
+  - nodejs
+  - pandas
+  - matplotlib
+  - seaborn
+  - pytorch
+  - torchvision
+  - torchaudio
+  - cudatoolkit=11.0
+  - scikit-learn
+  - tensorflow
+  - visdom
+  - pip:
+    - gpustat
+    - jupyter-tensorboard
+    - gym
+    - pyro-ppl

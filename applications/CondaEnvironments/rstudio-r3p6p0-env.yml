@@ -1,0 +1,9 @@
+name: rstudio-r3p6p0-env 
+channels:
+  - r
+  - defaults
+dependencies:
+  - r=3.6.0
+  - r-essentials
+  - rstudio
+  - r-rstan

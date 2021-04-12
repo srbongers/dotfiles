@@ -1,0 +1,8 @@
+#!/usr/bin/env  bash
+
+### User key remapping (see for more information: https://developer.apple.com/library/archive/technotes/tn2450/_index.html)
+# To check remapping state: hidutil property --get "UserKeyMapping"
+# Set to default: hidutil property --set '{"UserKeyMapping":[{}]}'
+
+# Remap Caps-lock (code: 0x39) to Escape (code: 0x29)
+hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x700000029}]}'
