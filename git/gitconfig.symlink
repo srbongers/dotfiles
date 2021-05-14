@@ -40,3 +40,6 @@
 	helper = osxkeychain
 [pull]
 	ff = only
+[user]
+	name = Stephan Bongers
+	email = srbongers@gmail.com

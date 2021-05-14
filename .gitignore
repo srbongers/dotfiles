@@ -5,7 +5,6 @@ config/nvim/spell
 config/nvim/autoload/plugged
 config/nvim/autoload/plug.vim
 config/rclone/*
-zsh/server.zsh
 ssh/*
 osx/*
 

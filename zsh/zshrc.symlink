@@ -98,7 +98,6 @@ fi
 # source all .zsh files inside of the zsh/ directory
 source "$DOTFILES/zsh/utils.zsh"
 source "$DOTFILES/zsh/prompt.zsh"
-source "$DOTFILES/zsh/server.zsh"
 
 # Key bindings
 # ------------------------------------------------------------------------
@@ -251,7 +250,7 @@ alias vim='nvim'
 alias vimr='nvr -s -p'
 
 # Forwards my custom TERM via ssh
-alias ssh='TERM=xterm-256color ssh'
+alias ssh='TERM=xterm ssh'
 
 # Pdflatex
 alias pdflatex='pdflatex --output-directory=build'
