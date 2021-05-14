@@ -1,0 +1,10 @@
+#!/bin/bash
+
+case $1 in
+  post)
+    /usr/bin/lsof /dev/nvidia* | awk '{if ($1 == "python") print $2 }' | awk '!a[$1]++' | xargs --no-run-if-empty kill
+    /usr/bin/nvidia-smi
+    /usr/bin/rmmod nvidia_uvm
+    /usr/bin/modprobe nvidia_uvm
+    ;;
+esac

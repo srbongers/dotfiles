@@ -215,6 +215,20 @@ function setup_terminfo() {
     tic -x "$DOTFILES/resources/xterm-256color-italic.terminfo"
 }
 
+setup_linux() {
+    title "Configuring linux"
+    if [[ "$(uname)" == "Linux" ]]; then
+
+        if [ -e "/usr/lib/systemd/system-sleep/suspend-nvidia" ]; then
+            info $"suspend-nvidia already exists... Skipping"
+        else
+            info "Copying suspend-nvidia"
+            sudo cp "$DOTFILES/applications/Systemd/suspend-nvidia" "/usr/lib/systemd/system-sleep/suspend-nvidia"
+            sudo chmod 755 "/usr/lib/systemd/system-sleep/suspend-nvidia"
+        fi
+    fi
+}
+
 setup_macos() {
     title "Configuring macOS"
     if [[ "$(uname)" == "Darwin" ]]; then
@@ -229,13 +243,13 @@ setup_macos() {
             else
                 info "Copying ${filename}"
                 cp "$file" "$target"
-		
-		if [[ "$(basename "$file" '.plist')" == "userkeymapping" ]]; then
-                    chmod 755 "$DOTFILES/bin/userkeymapping"
-		fi
-		
-		launchctl load "$target"
             fi
+		
+            if [[ "$(basename "$file" '.plist')" == "userkeymapping" ]]; then
+                chmod 755 "$DOTFILES/bin/userkeymapping"
+            fi
+                
+            launchctl load "$target"
         done
 
         echo "Finder: show all filename extensions"
@@ -489,6 +503,9 @@ case "$1" in
     terminfo)
         setup_terminfo
         ;;
+    linux)
+        setup_linux
+        ;;
     macos)
         setup_macos
         ;;
@@ -501,11 +518,12 @@ case "$1" in
         setup_homebrew
         setup_shell
         setup_git
+        setup_linux
         setup_macos
         setup_applications
         ;;
     *)
-        echo -e $"\nUsage: $(basename "$0") {backup|link|git|homebrew|shell|terminfo|macos|applications|all}\n"
+        echo -e $"\nUsage: $(basename "$0") {backup|link|git|homebrew|shell|terminfo|linux|macos|applications|all}\n"
         exit 1
         ;;
 esac
