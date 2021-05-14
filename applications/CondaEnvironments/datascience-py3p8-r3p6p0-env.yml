@@ -11,15 +11,16 @@ dependencies:
   - pip
   - ipykernel
   - ipywidgets
+  - jsonpatch
   - numpy
   - nodejs
   - pandas
   - matplotlib
   - seaborn
-  - pytorch
+  - pytorch=1.8.1
   - torchvision
   - torchaudio
-  - cudatoolkit=11.0
+  - cudatoolkit=11.1
   - scikit-learn
   - tensorflow
   - visdom
