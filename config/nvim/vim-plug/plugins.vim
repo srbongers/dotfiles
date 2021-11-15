@@ -8,6 +8,11 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
+  if exists('g:vscode')
+    " Easy motion for VSCode
+    Plug 'asvetliakov/vim-easymotion'
+  endif
+
     " Better Syntax Support
     Plug 'sheerun/vim-polyglot'
    

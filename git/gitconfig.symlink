@@ -36,8 +36,6 @@
     untracked = red
 [core]
     excludesfile = ~/.gitignore_global
-[credential]
-	helper = osxkeychain
 [pull]
 	ff = only
 [user]

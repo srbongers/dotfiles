@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>Label</key>
+        <string>jupyterserver</string>
+        <key>WorkingDirectory</key>
+        <string>/Users/srbongers/Library/Mobile Documents/com~apple~CloudDocs/jupyter</string>
+        <key>ProgramArguments</key>
+        <array>
+            <string>/Users/srbongers/.dotfiles/bin/start-jupyter.sh</string>
+        </array>
+        <key>StandardErrorPath</key>
+        <string>/Users/srbongers/Library/Logs/jupyter-server.log</string>
+        <key>StandardOutPath</key>
+        <string>/Users/srbongers/Library/Logs/jupyter-server.log</string>
+        <key>Disabled</key>
+        <false/>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>KeepAlive</key>
+        <true/>
+    </dict>
+</plist>

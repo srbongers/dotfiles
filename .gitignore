@@ -1,4 +1,5 @@
 .netrwhist
+*.pyc
 
 bin/server/*
 config/nvim/spell

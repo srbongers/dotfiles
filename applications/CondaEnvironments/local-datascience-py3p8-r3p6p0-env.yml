@@ -1,0 +1,33 @@
+name: datascience-py3p8-r3p6p0-env 
+channels:
+  - pytorch
+  - r
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - jupyterlab
+  - jupyter_nbextensions_configurator
+  - pip
+  - ipykernel
+  - ipywidgets
+  - tikzmagic
+  - jsonpatch
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - pytorch=1.10.0
+  - torchvision
+  - torchaudio
+  - scikit-learn
+  - tensorflow
+  - visdom
+  - r=3.6.0
+  - r-essentials
+  - rstudio
+  - r-rstan
+  - pip:
+    - jupyter-tensorboard
+    - gym
+    - pyro-ppl
